@@ -6,9 +6,9 @@ from transformers import AutoConfig, AutoProcessor, AutoModelForCausalLM
 from peft import PeftModel, PeftConfig
 #Replace this with the appropriate path as needed.
 parser = argparse.ArgumentParser()
-parser.add_argument("--lora_model", type=str, default=" ", help="微调保存的模型路径")
-parser.add_argument('--output_dir', type=str, default=' ',    help="合并模型的保存目录")
-parser.add_argument("--local_files_only", type=bool, default=False, help="是否只在本地加载模型，不尝试下载")
+parser.add_argument("--lora_model", type=str, default="", help="Fine-tune the saved model path")
+parser.add_argument('--output_dir', type=str, default='',    help="Save Directory for Merged Models")
+parser.add_argument("--local_files_only", type=bool, default=False, help="Should the model be loaded locally only, without attempting to download it?")
 args = parser.parse_args()
 print(args)
 
