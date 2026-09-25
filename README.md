@@ -122,9 +122,6 @@ A minimal example is:
 ```
 
 
-
-When present, each item is expected to contain an example answer and its score.
-
 ### Adapting a new scoring dataset
 
 The released repository contains task-specific prompt examples. Before training on a new dataset, edit:
