@@ -13,8 +13,8 @@ save_dir=/
 
 mkdir -p $save_dir
 data_dir=/
-train_data=$data_dir/
-test_data=$data_dir/
+train_data=$data_dir/train.jsonl
+test_data=$data_dir/eval.jsonl
 log_file=${save_dir}/train.log
 
 accelerate launch --main_process_port 29502 --config_file ${config_file} train.py \
