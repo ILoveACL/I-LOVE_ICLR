@@ -22,10 +22,10 @@ accelerate launch --main_process_port 29502 --config_file ${config_file} train.p
         --eval_data $test_data   \
         --output_dir $save_dir \
         --pre_trained_model $pre_model \
-        --train_batch_size 72  \
+        --train_batch_size 24  \
         --per_device_batch_size 4  \
         --max_length 512  \
-        --num_train_epochs 4  \
+        --num_train_epochs 8  \
         --seed 3407  \
         --log_interval 20  \
         --save_interval 20  \
