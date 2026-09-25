@@ -9,19 +9,15 @@ os.environ["NCCL_IB_DISABLE"] = "1"
 # os.environ["VLLM_LOG_LEVEL"] = "ERROR"
 # os.environ["VLLM_LOGGING_LEVEL"] = "ERROR"
 
-standard = f"""评分标准：
-三档（7—8分）：能就所有问题有效作答；能使用一个或多个完整的句子进行表达，所用语句在形式和内容上达到了较高水平；回答内容切题，表达清楚；回答中可以偶有停延、重复和语言错误。
-二档（4—6分）：能用结构简单的句子回答听到的所有问题，且内容基本切题，可以有多处停延、重复和语法错误，但基本能达意；或者只回答了部分问题，但内容切题，表达清楚，停延、重复和语言错误较少。
-一档（1—3分）：能勉强回答部分问题；不能说出完整的句子，表述以零散的词语为主，停延、重复较多，但说出的内容与听到的问题有关联。
-0档（0分）：不能作答；或答非所问；或作答的内容完全不可理解。
-"""
+
+
 
 def argument():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_dir", type=str,
-                        default=r"/home/nian/ft_LLM/trl_ft/raw_model/inf/DeepSeek-R1-Distill-Qwen-32B-finetune")
-    parser.add_argument("--output_file", type=str, default=r"/home/nian/ft_LLM/trl_ft/models/inf/test_Q32B.json")
-    parser.add_argument("--data_file", type=str, default=r"/home/nian/ft_LLM/datasets/new_local/train/test_inf_qa.json")
+                        default=r"") #Replace this with the appropriate path as needed.
+    parser.add_argument("--output_file", type=str, default=r"") #Replace this with the appropriate path as needed.
+    parser.add_argument("--data_file", type=str, default=r"")#Replace this with the appropriate path as needed.
 
     parser.add_argument("--rank", type=int, default=4)
     parser.add_argument("--bsz", type=int, default=32)
