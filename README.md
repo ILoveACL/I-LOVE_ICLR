@@ -390,11 +390,5 @@ Citation information will be updated after the paper is publicly available.
 
 This repository is released to support reproducibility and inspection of the training procedure described in the paper. The code is currently organized around the authors' experimental pipeline rather than as a general-purpose library.
 
-For issues related to dataset adaptation, tokenizer-specific constants, or reproducing a particular experimental configuration, please open a GitHub issue with:
 
-- model/backbone;
-- dataset and score range;
-- command used;
-- relevant training log;
-- error traceback, if any.
 
