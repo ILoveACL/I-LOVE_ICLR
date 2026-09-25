@@ -137,7 +137,7 @@ class Trainer:
             if len(score) > 0:
                 scores.append(float(score[0]))
             else:
-                scores.append((8-float(assis_labels[i]))) 
+                scores.append((5-float(assis_labels[i])))  #5 is the maximum score for the Moher dataset; adjust this number as needed based on the score ranges of different datasets.
         return scores
 
     def loss_mse(self, pred_score, labels):
