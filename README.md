@@ -121,20 +121,7 @@ A minimal example is:
 }
 ```
 
-Some task configurations additionally use:
 
-```json
-{
-  "info": "Optional context or source passage",
-  "question": "Question text",
-  "answer": "Answer to be graded",
-  "human_score": 7,
-  "example": [
-    ["Example answer 1", 8],
-    ["Example answer 2", 4]
-  ]
-}
-```
 
 The `example` field is optional. When present, each item is expected to contain an example answer and its score.
 
