@@ -1,10 +1,9 @@
-# NuAlign: A Numerical distance perception Alignment for Large Language Models as Automatic Evaluators
+# NuAlign: A Numerical Distance Perception Alignment for Large Language Models as Evaluators
 Official implementation of **NuAlign**, a two-stage training framework for numerical scoring with autoregressive large language models.
 
 NuAlign is designed for automatic evaluation tasks in which an LLM directly generates a numerical score. The method first learns the task-specific mapping between answers and score sequences, and then introduces numerical-distance information to modulate likelihood optimization while retaining the native autoregressive scoring interface.
 
-> **Paper status:** under review at ICLR 2027.  
-> **Repository:** https://github.com/ILoveACL/I-LOVE_ICLR
+
 
 ---
 
