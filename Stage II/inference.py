@@ -13,9 +13,9 @@ os.environ["NCCL_IB_DISABLE"] = "1"
 def argument():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_dir", type=str,
-                        default=r"/home/nian/ft_LLM/trl_ft/raw_model/inf/DeepSeek-R1-Distill-Qwen-32B-finetune")
-    parser.add_argument("--output_file", type=str, default=r"/home/nian/ft_LLM/trl_ft/models/inf/test_Q32B.json")
-    parser.add_argument("--data_file", type=str, default=r"/home/nian/ft_LLM/datasets/new_local/train/test_inf_qa.json")
+                        default=r"") #Replace this with the appropriate path as needed.
+    parser.add_argument("--output_file", type=str, default=r"") #Replace this with the appropriate path as needed.
+    parser.add_argument("--data_file", type=str, default=r"") #Replace this with the appropriate path as needed.
 
     parser.add_argument("--rank", type=int, default=4)
     parser.add_argument("--bsz", type=int, default=32)
@@ -39,19 +39,19 @@ def load_model(args):
     else:
         dtype = torch.float32
 
-    llm = LLM(model=args.model_dir,  # LLM模型位置
-              tensor_parallel_size=args.rank,  # 使用几张GPU卡进行推理
+    llm = LLM(model=args.model_dir,  
+              tensor_parallel_size=args.rank,  
               trust_remote_code=args.trust_remote_code,
-              dtype=dtype,  # 模型参数类型
-              max_model_len=args.max_length,  # prompt和生产的最大token数
+              dtype=dtype, 
+              max_model_len=args.max_length, 
               seed=args.seed,
-              gpu_memory_utilization=args.gpu_memory_utilization  # GPU显存使用率
+              gpu_memory_utilization=args.gpu_memory_utilization 
               )
     sampling_params = llm.get_default_sampling_params()
-    sampling_params.temperature = args.temperature  # 温度，控制模型生成
-    sampling_params.top_p = args.top_p  # 生成结果的采样概率
-    sampling_params.top_k = args.top_k  # 生成结果的采样大小
-    sampling_params.max_tokens = args.max_length  # prompt和生产的最大token数
+    sampling_params.temperature = args.temperature  
+    sampling_params.top_p = args.top_p  
+    sampling_params.top_k = args.top_k  
+    sampling_params.max_tokens = args.max_length  
     return llm, sampling_params
 
 def read_file(file_path):
