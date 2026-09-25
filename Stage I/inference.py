@@ -64,35 +64,21 @@ def read_file(file_path):
             datasets.append(data)
     return datasets
 
-def get_example(examples):
-    example_list = examples.get("example", None)
 
-    if example_list is None:
-        return None
-    else:
-        example_str = "评分示例:\n"
-        for i, k in enumerate(example_list):
-            example_str += f"  示例{i+1}:\n    回答：{k[0]}\n    最终得分：{k[1]}\n"
-    return example_str
-
+#We provide a prompt template for the Mohler dataset. For other datasets, simply replace the corresponding sections.
 def apply_prompt(example):
-    info = example["info"]
     question = example["question"]
     answer = example["answer"]
     score = example["human_score"]
-    prompt = "<|im_start|>"#"<｜begin▁of▁sentence｜>You are a helpful assistant."
-    if info is not None:
-        prompt += "user\n任务说明：你是一名中文语言学专家，给定下列评分标准，根据评分标准对根据内容回答问题的答案进行评分，给出最终得分，总分为8分。"
-    else:
-        prompt += "user\n任务说明：你是一名中文语言学专家，给定下列评分标准，根据评分标准对回答问题的答案进行评分，给出最终得分，总分为8分。"
-    prompt += standard
-    if info is not None:
-        prompt += f"内容：{info}\n"
-    prompt += f"问题：{question}\n"
-    ex_str = get_example(example)
-    if ex_str is not None:
-        prompt += ex_str
-    prompt += f"待评分回答：{answer}\n直接给出最终得分。输出格式为：\n最终得分：分数<|im_end|><|im_start|>assistant\n最终得分："
+    prompt = "<|im_start|>"  # "<｜begin▁of▁sentence｜>"
+
+    prompt += "user\nTask description: You are a professional computer teacher. You will assign a reasonable score to answers regarding computer-related questions, with the score not exceeding 5 points."
+
+    # prompt += standard
+
+    prompt += f"question：{question}\n"
+
+    prompt += f"Pending rating response：{answer}\nDirectly provide the final score. The output format is: \nFinal score: Score<|im_end|><|im_start|>assistant\nFinal score: "
     return prompt
 
 def main(args):
