@@ -4,7 +4,7 @@ import os
 
 from transformers import AutoConfig, AutoProcessor, AutoModelForCausalLM
 from peft import PeftModel, PeftConfig
-
+#Replace this with the appropriate path as needed.
 parser = argparse.ArgumentParser()
 parser.add_argument("--lora_model", type=str, default="", help="Fine-tune the saved model path")
 parser.add_argument('--output_dir', type=str, default='',    help="Save Directory for Merged Models")
@@ -12,7 +12,7 @@ parser.add_argument("--local_files_only", type=bool, default=False, help="Should
 args = parser.parse_args()
 print(args)
 
-assert os.path.exists(args.lora_model), f"模型文件{args.lora_model}不存在"
+assert os.path.exists(args.lora_model), f"Model Files{args.lora_model}Does not exist"
 
 peft_config = PeftConfig.from_pretrained(args.lora_model)
 
