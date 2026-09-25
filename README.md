@@ -123,7 +123,7 @@ A minimal example is:
 
 
 
-The `example` field is optional. When present, each item is expected to contain an example answer and its score.
+When present, each item is expected to contain an example answer and its score.
 
 ### Adapting a new scoring dataset
 
