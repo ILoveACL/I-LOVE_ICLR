@@ -152,7 +152,7 @@ or its dataset-specific equivalent.
 
 ### 1. Stage I: Semantic Score Alignment
 
-Enter the Stage-I directory:
+Enter the Stage I directory:
 
 ```bash
 cd "Stage I"
@@ -192,9 +192,9 @@ Stage I uses standard causal language-model supervision after masking the prompt
 
 ---
 
-### 2. Merge the Stage-I LoRA adapter
+### 2. Merge the Stage I LoRA adapter
 
-The Stage-II loader expects a normal causal-LM checkpoint. Therefore, a convenient workflow is to merge the Stage-I LoRA adapter before starting Stage II.
+The Stage-II loader expects a normal causal-LM checkpoint. Therefore, a convenient workflow is to merge the Stage I LoRA adapter before starting Stage II.
 
 ```bash
 python merge_lora.py \
@@ -208,7 +208,7 @@ The merged model is written under:
 /path/to/stage1_merged/<base-model-name>-finetune/
 ```
 
-Use this directory as the Stage-II initialization.
+Use this directory as the Stage II initialization.
 
 ---
 
@@ -281,7 +281,7 @@ python inference.py \
   --data_file /path/to/test.jsonl \
   --output_file /path/to/predictions.jsonl \
   --rank 1 \
-  --bsz 32 \
+  --bsz 24 \
   --seed 3407 \
   --temperature 0 \
   --top_k 1 \
@@ -340,7 +340,7 @@ The current preprocessing/training code contains special token IDs such as:
 
 ```python
 ignore_index = 151643
-end_index = 77091
+end_index = 77091 #assistant ID Adjustments should be made based on the specific model.
 ```
 
 These values depend on the tokenizer/model used in the original experiments. If a different model family or tokenizer is used, verify the corresponding special-token and score-region alignment before training.
