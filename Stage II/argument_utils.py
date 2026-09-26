@@ -3,10 +3,10 @@ from transformers import SchedulerType
 
 def argument():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--train_data", type=str, default=r"/home/nian/ft_LLM/datasets/new_local/train/train.json")
-    parser.add_argument("--eval_data", type=str, default=r"/home/nian/ft_LLM/datasets/new_local/train/test.json")
-    parser.add_argument("--output_dir", type=str, default=r"/home/nian/ft_LLM/ft_LLM/save_models")
-    parser.add_argument("--pre_trained_model", type=str, default=r"/home/nian/pred_model/LLM_models/DeepSeek-R1-Distill-Qwen-7B")
+    parser.add_argument("--train_data", type=str, default=r"train.json") #Replace this with the appropriate path as needed.
+    parser.add_argument("--eval_data", type=str, default=r"test.json") #Replace this with the appropriate path as needed.
+    parser.add_argument("--output_dir", type=str, default=r"save_models") #Replace this with the appropriate path as needed.
+    parser.add_argument("--pre_trained_model", type=str, default=r"") #Replace this with the appropriate path as needed.
 
     parser.add_argument("--train_batch_size", type=int, default=8)
     parser.add_argument("--per_device_batch_size", type=int, default=2)
