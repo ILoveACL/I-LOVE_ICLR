@@ -377,7 +377,7 @@ Citation information will be updated after the paper is publicly available.
 
 ```bibtex
 @inproceedings{nualign2027,
-  title     = {NuAlign: A Numerical Distance Perception Alignment for Large Language Models as Automatic Evaluators},
+  title     = {NuAlign: A Numerical Distance Perception Alignment for Large Language Models as Evaluators},
   author    = {Anonymous Authors},
   booktitle = {International Conference on Learning Representations},
   year      = {2027}
